@@ -4,6 +4,7 @@ This project is a frontend application for the Spy Cats Agency (SCA), built with
 
 The application is designed to be clean, functional, and easily integrated with a backend API.
 
+![image](https://github.com/user-attachments/assets/275c198c-226b-43e8-a829-458bacc6dbd6)
 ---
 
 ## 🚀 Getting Started
