@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spy Cats Agency - Agent Management Dashboard
 
-## Getting Started
+This project is a frontend application for the Spy Cats Agency (SCA), built with Next.js and TypeScript. It provides a simple, focused dashboard for SCA agents to perform CRUD (Create, Read, Update, Delete) operations on the agency's spy cat roster.
 
-First, run the development server:
+The application is designed to be clean, functional, and easily integrated with a backend API.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+You will need Node.js (version 18.x or later) and npm/yarn/pnpm installed on your machine.
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```shell
+    git clone [https://your-repository-url.com/spy-cats-dashboard.git](https://your-repository-url.com/spy-cats-dashboard.git)
+    cd spy-cats-dashboard
+    ```
+
+2.  **Install dependencies:**
+    ```shell
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a new file named `.env.local` in the root of your project and add the URL for your backend API:
+    ```
+    NEXT_PUBLIC_API_URL=http://localhost:8000
+    ```
+    *Replace `http://localhost:8000` with the actual address of your running backend server.*
+
+4.  **Run the development server:**
+    ```shell
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+The dashboard provides full CRUD functionality for managing spy cat agents.
 
-To learn more about Next.js, take a look at the following resources:
+### 1. View All Agents
+* On page load, the application fetches and displays a list of all spy cat agents in a clean, responsive table.
+* The table shows each agent's Name, Years of Experience, Breed, and current Salary.
+* A loading state is shown while the data is being fetched.
+* An empty state message is displayed if no agents are found.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Add a New Agent
+* Click the "Add New Agent" button to open a dialog form.
+* The form includes fields for Name, Years of Experience, Breed, and Salary.
+* Input validation is handled by **Zod**, providing clear error messages for each field if the input is invalid (e.g., name is too short, salary is not a positive number).
+* The form makes an API call to the backend to create the new agent.
+* The agent list automatically refreshes upon successful creation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Edit an Agent's Salary
+* Each row in the agent table has an "Edit" button.
+* Clicking "Edit" opens a dialog focused specifically on updating that agent's salary.
+* The form is pre-filled with the agent's current salary.
+* Input is validated to ensure it's a positive number.
+* An API call is made to update the salary, and the list refreshes on success.
 
-## Deploy on Vercel
+### 4. Delete an Agent
+* Each row also has a "Delete" button.
+* Clicking "Delete" opens a confirmation dialog to prevent accidental dismissals.
+* Upon confirmation, an API call is made to remove the agent from the database.
+* The agent list refreshes to reflect the deletion.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Technical Highlights
+* **Framework:** Next.js with the App Router.
+* **Language:** TypeScript for full type safety.
+* **Styling:** components by `shadcn/ui`.
+* **API Communication:** `axios` is used for all HTTP requests to the backend API.
+* **Validation:** `zod` is used for robust and declarative schema-based validation on all forms.
+* **Component-Based Architecture:** The application is broken down into reusable UI components and feature-specific components for maintainability and scalability.
