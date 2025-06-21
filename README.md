@@ -18,10 +18,6 @@ You will need Node.js (version 18.x or later) and npm/yarn/pnpm installed on you
 ### Installation & Setup
 
 1.  **Clone the repository:**
-    ```shell
-    git clone [https://your-repository-url.com/spy-cats-dashboard.git](https://your-repository-url.com/spy-cats-dashboard.git)
-    cd spy-cats-dashboard
-    ```
 
 2.  **Install dependencies:**
     ```shell
